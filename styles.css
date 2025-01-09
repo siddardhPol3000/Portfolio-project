@@ -4,7 +4,7 @@
     --link-color: #ffffff;
     --background-color: #eeeff1;
     --highlight-color: #bfd6c4; /* Added for consistent color usage */
-    font-size: 15px; /* Set the base font size */
+    font-size: 16.7px; /* Set the base font size */
 }
 
 * {
@@ -18,10 +18,8 @@ html {
     scroll-padding-top: 5rem; /* Adjust based on the height of your nav bar */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
-
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'EB Garamond', serif;
     background-color: var(--background-color);
 }
 
@@ -44,21 +42,29 @@ nav {
     backdrop-filter: blur(5px);
 }
 
-nav .left a {
+nav .top-left a {
     color: var(--text-color);
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 600;   
 }
 
-nav .right a {
-    color: var(--text-color);
+nav .top-right {
+    display: flex; /* Ensures links are in a row */
+    gap: 1.5rem; /* Adjusts spacing between the links */
+    /* justify-content: space-between; Space between links */
+    /* padding: 1rem; Padding for cleaner spacing alignment */
+}
+
+
+nav .top-right a {
+    color: var(--text-color); /* Default text color */
     font-size: 1.375rem;
-    margin: 0 0.625rem;
+    /* margin: 0; Remove margin since gap handles spacing */
+    transition: color 0.3s ease-in-out; /* Smooth transition effect */
 }
 
-nav .right a:hover {
-    color: var(--text-color);
-    transition: color 0.3s ease-in-out;
+nav .top-right a:hover {
+    color: var(--link-color); /* Change to white (or any desired color) */
 }
 
 /* General Section Styles */
@@ -112,7 +118,7 @@ section h2::after {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 8rem 2rem; /* Corrected typo */
+    padding: 8rem 2rem;
     gap: 0.5rem;
 }
 
@@ -145,7 +151,11 @@ section h2::after {
 }
 
 #about-section .social-medias {
-    font-size: 2.25rem;
+    display: flex;
+    justify-content: center;
+    gap: 11px;
+    font-size: 2.11rem;
+    margin-top: 30px;
 }
 
 #about-section .social-medias a {
@@ -164,14 +174,13 @@ section h2::after {
     font-weight: 500;
 }
 
-
-/* Projects Section  */
+/* Projects Section */
 #projects-section {
     width: 100%;
     margin: auto;
     min-height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 2rem;
@@ -185,37 +194,36 @@ section h2::after {
 
 .project-subsection {
     width: 100%;
-    margin-bottom: 4rem;     /* Add space between subsections */
+    margin-bottom: 4rem; /* Add space between subsections */
 }
 
-.projects-scroll-conatiner {
+.projects-scroll-container {
     display: flex;
     gap: 1.5rem;
     padding: 1rem;
     width: 100%;
     max-width: 1600px;
-    overflow-x: auto;    /* Allow horizontal scrolling if needed */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
     margin: 0 auto;
 }
 
 .project-box {
-    flex: 0 0 16rem;    /* Fixed width for the boxes */
+    flex: 0 0 16rem; /* Fixed width for the boxes */
     text-align: center;
     border: 1px solid #d7dbd8;
     border-radius: 0.5rem;
     padding: 1rem;
     background-color: #f9f9f9;
     box-shadow: 0 4px rgb(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;    /* Smooth transition for scrolling */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-box:hover {
-    transform: scale(0.95);   /* Grow the box slightly on hover */
+    transform: scale(0.95); /* Shrink the box slightly on hover */
     box-shadow: 0 6px 12px rgb(0, 0, 0, 0.15);
 }
 
 .project-box img {
-    /* width: 50%; */
     height: 12rem;
     object-fit: cover;
     border-radius: 0.24rem;
@@ -228,7 +236,7 @@ section h2::after {
     font-weight: 600;
 }
 
-/.project-box h5 {
+.project-box h5 {
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
@@ -237,4 +245,71 @@ section h2::after {
     font-size: 1rem;
     font-weight: 300;
     color: #494a4a;
+}
+
+/* Skills Section */
+#skills-section {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+}
+
+#skills-section h2 {
+    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+
+#skills-section .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.35rem;
+}
+
+#skills-section i {
+    font-size: 3rem;
+    color: #588061;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin: 1rem 0;
+}
+
+#skills-section i:hover {
+    transform: scale(1.2);
+    color: #a5d6b0;
+}
+
+/* Leave a Message Section */
+#leave-message-section {
+    min-height: 50vh; /* Make it half the viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+#leave-message-section h2 {
+    margin-bottom: 2rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+
+#leave-message-section p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Footer Section */
+footer {
+    background-color: #909090;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
 }
